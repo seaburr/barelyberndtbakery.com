@@ -28,14 +28,20 @@
     />
     <style>
       :root {
-        --bg: #fff9f4;
-        --card: #ffffff;
+        --bg: #fffaf2;
+        --bg-accent: #ffe1c8;
+        --card: #ffffffcc;
+        --card-border: rgba(255, 255, 255, 0.6);
         --cookie: #8b5a2b;
         --cookie-edge: #6d4220;
         --mitt-left: #f46d75;
         --mitt-right: #f9a15e;
-        --shadow: rgba(0, 0, 0, 0.08);
+        --shadow: rgba(27, 14, 4, 0.14);
         --text: #3b2515;
+        --subtle: #8b6a4b;
+        --accent: #ff6f61;
+        --accent-dark: #d3554a;
+        --sprinkle: rgba(244, 158, 135, 0.55);
         font-family: "Sora", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
@@ -49,95 +55,312 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: radial-gradient(circle at top, #ffeeda, var(--bg));
+        padding: clamp(24px, 4vw, 60px);
+        background: radial-gradient(circle at top, var(--bg-accent), var(--bg));
         color: var(--text);
+        position: relative;
+      }
+
+      body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(var(--sprinkle) 1px, transparent 0);
+        background-size: 42px 42px;
+        opacity: 0.4;
+        pointer-events: none;
       }
 
       .card {
-        width: min(520px, 92vw);
+        position: relative;
+        z-index: 1;
+        width: min(960px, 96vw);
         background: var(--card);
-        border-radius: 28px;
-        padding: 48px clamp(24px, 7vw, 48px);
-        box-shadow: 0 30px 60px var(--shadow);
-        text-align: center;
+        border: 1px solid var(--card-border);
+        border-radius: 36px;
+        padding: clamp(32px, 5vw, 60px);
+        box-shadow: 0 20px 60px var(--shadow);
+        backdrop-filter: blur(12px);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(24px, 4vw, 40px);
+      }
+
+      .status-chip {
+        align-self: flex-start;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        padding: 10px 18px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .status-chip::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #38c277;
+        box-shadow: 0 0 10px rgba(56, 194, 119, 0.6);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: clamp(24px, 4vw, 48px);
+        align-items: center;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--subtle);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.2;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .description {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--subtle);
+        line-height: 1.6;
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .cta a {
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 12px 24px;
+        font-weight: 600;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        box-shadow: 0 15px 25px rgba(255, 111, 97, 0.35);
+      }
+
+      .cta-secondary {
+        color: var(--accent-dark);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .cta a:focus-visible {
+        outline: 3px solid #222;
+        outline-offset: 3px;
+      }
+
+      .cta a:hover {
+        transform: translateY(-2px);
+      }
+
+      .countdown {
+        font-family: "Space Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: 0.95rem;
+        color: var(--subtle);
+        margin: 8px 0 0;
+      }
+
+      .hero-visual {
+        margin: 0;
       }
 
       svg {
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 25px 45px rgba(40, 20, 6, 0.2));
+        animation: float 6s ease-in-out infinite;
       }
 
-      h1 {
-        font-size: clamp(1.5rem, 3vw, 2.15rem);
-        font-weight: 600;
-        margin: 32px 0 0;
-        letter-spacing: 0.02em;
+      .footnote {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        font-size: 0.95rem;
+        color: var(--subtle);
       }
 
-      .tagline {
-        font-size: clamp(1rem, 2.8vw, 1.2rem);
-        margin-top: 0.35rem;
-        color: #8b6a4b;
+      .divider {
+        opacity: 0.4;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .card {
+          border-radius: 24px;
+        }
+
+        .cta {
+          flex-direction: column;
+        }
+
+        .cta a {
+          text-align: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        svg {
+          animation: none;
+        }
+
+        .cta a {
+          transition: none;
+        }
       }
     </style>
   </head>
   <body>
-    <main class="card" aria-labelledby="tagline">
-      <svg viewBox="0 0 420 360" role="img" aria-labelledby="cookie-illustration">
-        <title id="cookie-illustration">Hands in oven mitts holding a heart-shaped cookie pan</title>
-        <defs>
-          <filter id="shadowBlur" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="rgba(0,0,0,0.15)" />
-          </filter>
-          <radialGradient id="panDepth" cx="50%" cy="45%" r="68%">
-            <stop offset="0%" stop-color="#ccd3df" />
-            <stop offset="65%" stop-color="#838b9b" />
-            <stop offset="100%" stop-color="#4e5563" />
-          </radialGradient>
-        </defs>
+    <main class="card" aria-labelledby="site-title">
+      <p class="status-chip">Fresh batch rising</p>
+      <div class="hero">
+        <section class="hero-content">
+          <p class="eyebrow">Barely Berndt Bakery</p>
+          <h1 id="site-title">Cookie cakes baked with playful luxury.</h1>
+          <p class="description">
+            We’re whisking up nostalgic flavors with swirls of brown butter and glittering sprinkles. Sign up to be the
+            first to know when ordering opens.
+          </p>
+          <div class="cta">
+            <a class="cta-primary" href="mailto:hello@barelyberndtbakery.com?subject=Cookie%20cake%20preorder">Save me a slice</a>
+            <a class="cta-secondary" href="https://www.instagram.com/barelyberndtbakery" target="_blank" rel="noreferrer noopener">Follow the crumbs</a>
+          </div>
+          <p class="countdown" data-countdown>Oven preheating…</p>
+        </section>
+        <figure class="hero-visual">
+          <svg viewBox="0 0 420 360" role="img" aria-labelledby="cookie-illustration">
+            <title id="cookie-illustration">Hands in oven mitts holding a heart-shaped cookie pan</title>
+            <defs>
+              <filter id="shadowBlur" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="rgba(0,0,0,0.15)" />
+              </filter>
+              <radialGradient id="panDepth" cx="50%" cy="45%" r="68%">
+                <stop offset="0%" stop-color="#ccd3df" />
+                <stop offset="65%" stop-color="#838b9b" />
+                <stop offset="100%" stop-color="#4e5563" />
+              </radialGradient>
+            </defs>
 
-        <ellipse cx="210" cy="300" rx="150" ry="30" fill="rgba(0,0,0,0.08)" />
+            <ellipse cx="210" cy="300" rx="150" ry="30" fill="rgba(0,0,0,0.08)" />
 
-        <ellipse cx="210" cy="205" rx="160" ry="118" fill="url(#panDepth)" filter="url(#shadowBlur)" />
-        <ellipse cx="210" cy="205" rx="140" ry="100" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.55)" stroke-width="2" />
+            <ellipse cx="210" cy="205" rx="160" ry="118" fill="url(#panDepth)" filter="url(#shadowBlur)" />
+            <ellipse cx="210" cy="205" rx="140" ry="100" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.55)" stroke-width="2" />
 
-        <path
-          d="M210 150c-30-40-95-20-95 32 0 52 75 102 95 117 20-15 95-65 95-117 0-52-65-72-95-32z"
-          fill="var(--cookie)"
-          stroke="var(--cookie-edge)"
-          stroke-width="8"
-          stroke-linecap="round"
-        />
+            <path
+              d="M210 150c-30-40-95-20-95 32 0 52 75 102 95 117 20-15 95-65 95-117 0-52-65-72-95-32z"
+              fill="var(--cookie)"
+              stroke="var(--cookie-edge)"
+              stroke-width="8"
+              stroke-linecap="round"
+            />
 
-        <g fill="#3d1f08">
-          <circle cx="170" cy="170" r="10" />
-          <circle cx="140" cy="210" r="12" />
-          <circle cx="200" cy="210" r="9" />
-          <circle cx="230" cy="165" r="11" />
-          <circle cx="250" cy="205" r="13" />
-          <circle cx="210" cy="245" r="10" />
-        </g>
+            <g fill="#3d1f08">
+              <circle cx="170" cy="170" r="10" />
+              <circle cx="140" cy="210" r="12" />
+              <circle cx="200" cy="210" r="9" />
+              <circle cx="230" cy="165" r="11" />
+              <circle cx="250" cy="205" r="13" />
+              <circle cx="210" cy="245" r="10" />
+            </g>
 
-        <path
-          d="M58 220c-44-10-44-78-6-102s104 37 104 37l-32 74s-22 9-66-9z"
-          fill="var(--mitt-left)"
-          stroke="#cc5458"
-          stroke-width="8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          d="M362 220c44-10 44-78 6-102s-104 37-104 37l32 74s22 9 66-9z"
-          fill="var(--mitt-right)"
-          stroke="#d98342"
-          stroke-width="8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-
-      <p class="tagline" id="tagline">barelyberndtbakery.com</p>
-      <h1>Your new favorite cookie cake will be out of the oven soon...</h1>
+            <path
+              d="M58 220c-44-10-44-78-6-102s104 37 104 37l-32 74s-22 9-66-9z"
+              fill="var(--mitt-left)"
+              stroke="#cc5458"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M362 220c44-10 44-78 6-102s-104 37-104 37l32 74s22 9 66-9z"
+              fill="var(--mitt-right)"
+              stroke="#d98342"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <figcaption class="sr-only">Hands in oven mitts presenting a heart-shaped chocolate chip cookie pan.</figcaption>
+        </figure>
+      </div>
+      <footer class="footnote">
+        <span>Gluten-welcoming &amp; fully indulgent.</span>
+        <span class="divider" aria-hidden="true">•</span>
+        <span>Baked with love in ATL.</span>
+      </footer>
     </main>
+    <script>
+      (function () {
+        const countdownEl = document.querySelector("[data-countdown]");
+        if (!countdownEl) return;
+
+        const launchDate = new Date("2024-11-15T15:00:00-05:00");
+
+        function format(diff) {
+          if (diff <= 0) return "Freshly launched—get your crumb on!";
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          return `${days}d ${hours}h ${minutes}m until the oven door swings open`;
+        }
+
+        function tick() {
+          const diff = launchDate - new Date();
+          countdownEl.textContent = format(diff);
+        }
+
+        tick();
+        const timer = setInterval(tick, 60_000);
+        window.addEventListener("beforeunload", () => clearInterval(timer));
+      })();
+    </script>
   </body>
 </html>
