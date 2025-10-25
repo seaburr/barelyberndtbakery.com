@@ -79,25 +79,10 @@
         border: 1px solid var(--card-border);
         border-radius: 36px;
         padding: clamp(32px, 5vw, 60px);
-        box-shadow: 0 20px 60px var(--shadow);
         backdrop-filter: blur(12px);
         display: flex;
         flex-direction: column;
         gap: clamp(24px, 4vw, 40px);
-      }
-
-      .card::after {
-        content: "";
-        position: absolute;
-        left: 12%;
-        right: 12%;
-        bottom: -28px;
-        height: 28px;
-        background: radial-gradient(circle, rgba(27, 14, 4, 0.18), transparent 65%);
-        filter: blur(12px);
-        opacity: 0.65;
-        pointer-events: none;
-        z-index: -1;
       }
 
       .status-chip {
@@ -259,8 +244,8 @@
 
         .card {
           border-radius: 24px;
-          padding: 28px 22px 32px;
-          gap: 24px;
+          padding: 24px 20px 28px;
+          gap: 20px;
           width: 100%;
           max-width: 520px;
           margin: 0 auto;
@@ -268,17 +253,35 @@
 
         .hero {
           grid-template-columns: 1fr;
-          gap: 24px;
+          gap: 18px;
+        }
+
+        .hero-content {
+          gap: 12px;
+        }
+
+        .status-chip {
+          font-size: 0.75rem;
+          padding: 8px 14px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .description {
+          font-size: 1rem;
+          line-height: 1.4;
         }
 
         .hero-visual {
-          max-width: 320px;
+          max-width: 280px;
           margin: 0 auto;
         }
 
         .hero-visual svg {
           height: auto;
-          max-height: 260px;
+          max-height: 220px;
         }
 
         .cta {
@@ -287,6 +290,17 @@
 
         .cta a {
           text-align: center;
+          width: 100%;
+          padding: 10px 18px;
+        }
+
+        .countdown {
+          margin-top: 4px;
+        }
+
+        .footnote {
+          font-size: 0.85rem;
+          gap: 6px;
         }
       }
 
