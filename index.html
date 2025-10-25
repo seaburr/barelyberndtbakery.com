@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>barelyberndtbakery.com</title>
+    <meta
+      name="description"
+      content="Barely Berndt Bakery is firing up the oven—heart-shaped chocolate chip cookies and your next favorite treats are almost ready."
+    />
+    <meta
+      name="keywords"
+      content="Barely Berndt Bakery, cookies, chocolate chip cookie, heart cookie, bakery, coming soon"
+    />
+    <link rel="canonical" href="https://barelyberndtbakery.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://barelyberndtbakery.com/" />
+    <meta property="og:title" content="Barely Berndt Bakery" />
+    <meta
+      property="og:description"
+      content="Hands in mitts, heart-shaped cookie in the oven—Barely Berndt Bakery is almost ready to share your favorite cookies."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Barely Berndt Bakery" />
+    <meta
+      name="twitter:description"
+      content="Your favorite cookies are baking... check back soon for the sweetest updates from Barely Berndt Bakery."
+    />
+    <style>
+      :root {
+        --bg: #fff9f4;
+        --card: #ffffff;
+        --cookie: #8b5a2b;
+        --cookie-edge: #6d4220;
+        --mitt-left: #f46d75;
+        --mitt-right: #f9a15e;
+        --shadow: rgba(0, 0, 0, 0.08);
+        --text: #3b2515;
+        font-family: "Sora", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at top, #ffeeda, var(--bg));
+        color: var(--text);
+      }
+
+      .card {
+        width: min(520px, 92vw);
+        background: var(--card);
+        border-radius: 28px;
+        padding: 48px clamp(24px, 7vw, 48px);
+        box-shadow: 0 30px 60px var(--shadow);
+        text-align: center;
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: clamp(1.5rem, 3vw, 2.15rem);
+        font-weight: 600;
+        margin: 32px 0 0;
+        letter-spacing: 0.02em;
+      }
+
+      .tagline {
+        font-size: clamp(1rem, 2.8vw, 1.2rem);
+        margin-top: 0.35rem;
+        color: #8b6a4b;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" aria-labelledby="tagline">
+      <svg viewBox="0 0 420 360" role="img" aria-labelledby="cookie-illustration">
+        <title id="cookie-illustration">Hands in oven mitts holding a heart-shaped cookie pan</title>
+        <defs>
+          <filter id="shadowBlur" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="rgba(0,0,0,0.15)" />
+          </filter>
+          <radialGradient id="panDepth" cx="50%" cy="45%" r="68%">
+            <stop offset="0%" stop-color="#ccd3df" />
+            <stop offset="65%" stop-color="#838b9b" />
+            <stop offset="100%" stop-color="#4e5563" />
+          </radialGradient>
+        </defs>
+
+        <ellipse cx="210" cy="300" rx="150" ry="30" fill="rgba(0,0,0,0.08)" />
+
+        <ellipse cx="210" cy="205" rx="160" ry="118" fill="url(#panDepth)" filter="url(#shadowBlur)" />
+        <ellipse cx="210" cy="205" rx="140" ry="100" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.55)" stroke-width="2" />
+
+        <path
+          d="M210 150c-30-40-95-20-95 32 0 52 75 102 95 117 20-15 95-65 95-117 0-52-65-72-95-32z"
+          fill="var(--cookie)"
+          stroke="var(--cookie-edge)"
+          stroke-width="8"
+          stroke-linecap="round"
+        />
+
+        <g fill="#3d1f08">
+          <circle cx="170" cy="170" r="10" />
+          <circle cx="140" cy="210" r="12" />
+          <circle cx="200" cy="210" r="9" />
+          <circle cx="230" cy="165" r="11" />
+          <circle cx="250" cy="205" r="13" />
+          <circle cx="210" cy="245" r="10" />
+        </g>
+
+        <path
+          d="M58 220c-44-10-44-78-6-102s104 37 104 37l-32 74s-22 9-66-9z"
+          fill="var(--mitt-left)"
+          stroke="#cc5458"
+          stroke-width="8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M362 220c44-10 44-78 6-102s-104 37-104 37l32 74s22 9 66-9z"
+          fill="var(--mitt-right)"
+          stroke="#d98342"
+          stroke-width="8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+
+      <p class="tagline" id="tagline">barelyberndtbakery.com</p>
+      <h1>Your new favorite cookie cake will be out of the oven soon...</h1>
+    </main>
+  </body>
+</html>
