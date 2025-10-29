@@ -60,7 +60,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: clamp(24px, 4vw, 60px);
+        padding: clamp(20px, 3vw, 40px);
         background: linear-gradient(180deg, var(--rose) 0%, #ab877e 100%);
         color: var(--ink);
         position: relative;
@@ -83,11 +83,11 @@
         background: var(--card);
         border: 1px solid var(--card-border);
         border-radius: 36px;
-        padding: clamp(32px, 5vw, 60px);
+        padding: clamp(28px, 4vw, 48px);
         backdrop-filter: blur(12px);
         display: flex;
         flex-direction: column;
-        gap: clamp(24px, 4vw, 40px);
+        gap: clamp(20px, 3vw, 32px);
       }
 
       .status-chip {
@@ -116,7 +116,7 @@
       .hero {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: clamp(24px, 4vw, 48px);
+        gap: clamp(20px, 3vw, 36px);
         align-items: center;
       }
 
@@ -198,8 +198,12 @@
       .hero-visual img {
         width: 100%;
         height: auto;
+        max-height: min(360px, 45vh);
         filter: drop-shadow(0 25px 45px rgba(40, 20, 6, 0.2));
         animation: float 6s ease-in-out infinite;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
       }
 
       .footnote {
