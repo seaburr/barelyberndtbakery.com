@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <title>Barely Berndt Bakery · Sweet Moments Ahead</title>
+    <meta
+      name="description"
+      content="Barely Berndt Bakery is baking heart-forward cakes and cookies in Atlanta. Explore the story, peek at the menu, and get in touch to place your order."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Barely Berndt Bakery" />
+    <meta
+      property="og:description"
+      content="Heart-shaped cookie cakes, nostalgic bakes, and plenty of butter—discover what's coming from Barely Berndt Bakery."
+    />
+    <style>
+      :root {
+        --rose: #d6a99d;
+        --butter: #fbf3d5;
+        --sage: #d6dac8;
+        --teal: #9cafaa;
+        --ink: #2f2a2a;
+        --mink: #5b504d;
+        --card: rgba(255, 255, 255, 0.8);
+        --card-border: rgba(255, 255, 255, 0.58);
+        --shadow: rgba(20, 22, 21, 0.12);
+        --accent: var(--rose);
+        --accent-dark: #b9867a;
+        font-family: "Sora", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, var(--rose) 0%, #ab877e 100%);
+        color: var(--ink);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 0);
+        background-size: 42px 42px;
+        opacity: 0.45;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .site-wrapper {
+        width: min(1120px, 92vw);
+        margin: 0 auto;
+        padding: clamp(20px, 4vw, 48px) 0 clamp(60px, 8vw, 120px);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(40px, 6vw, 70px);
+      }
+
+      .site-header {
+        position: sticky;
+        top: clamp(12px, 4vw, 24px);
+        z-index: 10;
+      }
+
+      .nav-shell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 999px;
+        padding: 14px clamp(18px, 3vw, 32px);
+        box-shadow: 0 18px 45px rgba(48, 34, 29, 0.13);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(47, 42, 42, 0.18);
+      }
+
+      nav {
+        display: flex;
+        gap: clamp(12px, 2vw, 24px);
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--ink);
+        padding: 10px 16px;
+        border-radius: 999px;
+        transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      nav a:hover,
+      nav a:focus-visible {
+        background: rgba(255, 255, 255, 0.68);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 25px rgba(47, 42, 42, 0.15);
+        outline: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(36px, 6vw, 72px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: clamp(28px, 6vw, 60px);
+        padding: clamp(32px, 6vw, 72px);
+        background: var(--card);
+        border-radius: clamp(28px, 5vw, 42px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 28px 60px rgba(25, 20, 20, 0.18);
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 16px;
+        border-radius: clamp(24px, 5vw, 38px);
+        border: 1px dashed rgba(255, 255, 255, 0.32);
+        pointer-events: none;
+      }
+
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.9rem;
+        color: var(--mink);
+        margin: 0;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-size: clamp(2.4rem, 5vw, 3.4rem);
+        line-height: 1.15;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .hero-copy {
+        margin: 0;
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        line-height: 1.6;
+        color: var(--mink);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-actions a {
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 12px 24px;
+        font-weight: 600;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .hero-primary {
+        background: linear-gradient(135deg, var(--rose), var(--accent-dark));
+        color: #fff;
+        box-shadow: 0 16px 30px rgba(183, 134, 122, 0.4);
+      }
+
+      .hero-secondary {
+        background: rgba(255, 255, 255, 0.75);
+        color: var(--accent-dark);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .hero-actions a:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-visual {
+        align-self: center;
+        justify-self: center;
+        background: rgba(255, 255, 255, 0.72);
+        padding: clamp(18px, 3vw, 32px);
+        border-radius: clamp(24px, 4vw, 36px);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35), 0 18px 40px rgba(48, 34, 29, 0.2);
+      }
+
+      .hero-visual img {
+        width: clamp(200px, 32vw, 280px);
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .section {
+        background: var(--card);
+        border-radius: clamp(24px, 4vw, 34px);
+        border: 1px solid var(--card-border);
+        padding: clamp(28px, 5vw, 52px);
+        box-shadow: 0 18px 50px rgba(25, 20, 20, 0.16);
+        display: grid;
+        gap: clamp(16px, 3vw, 24px);
+      }
+
+      .section-header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 600;
+      }
+
+      .section-subtitle {
+        margin: 0;
+        color: var(--mink);
+        font-size: 1rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: clamp(18px, 3vw, 28px);
+      }
+
+      .about-card {
+        padding: clamp(18px, 3vw, 26px);
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: grid;
+        gap: 10px;
+      }
+
+      .about-card h3 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .about-card p {
+        margin: 0;
+        color: var(--mink);
+        line-height: 1.55;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: clamp(16px, 3vw, 28px);
+      }
+
+      .menu-item {
+        padding: clamp(16px, 3vw, 24px);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: grid;
+        gap: 6px;
+      }
+
+      .menu-item h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+      }
+
+      .menu-item p {
+        margin: 0;
+        color: var(--mink);
+        line-height: 1.5;
+      }
+
+      .ordering-steps {
+        display: grid;
+        gap: clamp(12px, 2.5vw, 20px);
+        counter-reset: step;
+      }
+
+      .ordering-step {
+        display: grid;
+        gap: 6px;
+        padding: clamp(16px, 2.5vw, 22px);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .ordering-step::before {
+        counter-increment: step;
+        content: "Step " counter(step);
+        font-family: "Space Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+      }
+
+      .ordering-step h3 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      .ordering-step p {
+        margin: 0;
+        color: var(--mink);
+        line-height: 1.5;
+      }
+
+      .contact-card {
+        display: grid;
+        gap: clamp(14px, 3vw, 22px);
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: clamp(14px, 2.5vw, 20px);
+      }
+
+      .contact-method {
+        padding: clamp(16px, 3vw, 24px);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: grid;
+        gap: 6px;
+      }
+
+      .contact-method span {
+        font-weight: 600;
+      }
+
+      .contact-method a {
+        color: var(--accent-dark);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .contact-method a:hover,
+      .contact-method a:focus-visible {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: auto;
+        padding: 24px 0 40px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 720px) {
+        .nav-shell {
+          flex-direction: column;
+          gap: 14px;
+          align-items: flex-start;
+        }
+
+        nav {
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+
+        nav a {
+          padding: 10px 14px;
+        }
+
+        .hero::after {
+          inset: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        nav a,
+        .hero-actions a {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+        <div class="nav-shell">
+          <a class="brand" href="#top">
+            <img src="assets/bbb_logo.png" alt="Barely Berndt Bakery logo" decoding="async" />
+            Barely Berndt Bakery
+          </a>
+          <nav aria-label="Primary">
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#ordering">Ordering</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-text">
+            <p class="hero-eyebrow">Heart-first baking</p>
+            <h1 class="hero-title">Cookie cakes and nostalgic treats baked with big feelings.</h1>
+            <p class="hero-copy">
+              We’re Barely Berndt Bakery—an Atlanta micro-bakery turning brown butter, sparkling sugar, and a pinch of
+              whimsy into made-to-order celebrations. Take a peek at what’s in the oven and get ready to taste your new
+              favorite slice.
+            </p>
+            <div class="hero-actions">
+              <a class="hero-primary" href="#menu">Explore the menu</a>
+              <a class="hero-secondary" href="#contact">Say hello</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/bbb_logo.png" alt="Barely Berndt Bakery badge" decoding="async" />
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <header class="section-header">
+            <h2 class="section-title">About the bakery</h2>
+            <p class="section-subtitle">
+              Handcrafted bakes, heartfelt celebrations, and plenty of butter—all coming together in our cozy ATL
+              kitchen.
+            </p>
+          </header>
+          <div class="about-grid">
+            <article class="about-card">
+              <h3>A love letter to cookies</h3>
+              <p>
+                Every Barely Berndt creation starts with a childhood memory: the warm cookie cake at the center of every
+                party. We remix nostalgic favorites with brown butter, flaky salt, and unexpected sprinkles.
+              </p>
+            </article>
+            <article class="about-card">
+              <h3>Small batch, big heart</h3>
+              <p>
+                We keep our batches intimate so each crumb gets attention. From hand-painted icing to richly layered
+                dough, you’ll taste the care (and the butter) in every bite.
+              </p>
+            </article>
+            <article class="about-card">
+              <h3>Celebrations of all sizes</h3>
+              <p>
+                Cookie cakes, sprinkle-lined bars, and party-ready treat boxes make it easy to celebrate everything from
+                Tuesday wins to milestone birthdays.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="menu">
+          <header class="section-header">
+            <h2 class="section-title">Menu preview</h2>
+            <p class="section-subtitle">
+              Seasonal flavors rotate in and out, but these classics are always on deck. Vegan and gluten-free friendly
+              options are in the works.
+            </p>
+          </header>
+          <div class="menu-grid">
+            <article class="menu-item">
+              <h3>Heart-on-sleeve cookie cake</h3>
+              <p>
+                Brown butter dough laced with dark chocolate chunks, caramel ribbons, and a sprinkle-studded buttercream
+                border.
+              </p>
+            </article>
+            <article class="menu-item">
+              <h3>Brown sugar birthday bars</h3>
+              <p>
+                Chewy center, crisp edges, vanilla bean frosting, and glittering sugar that makes every slice party
+                ready.
+              </p>
+            </article>
+            <article class="menu-item">
+              <h3>Midnight spoon cookies</h3>
+              <p>
+                Dark cocoa dough, puddles of semisweet chocolate, and a kiss of Maldon salt for the late-night sweet
+                tooth.
+              </p>
+            </article>
+            <article class="menu-item">
+              <h3>Sunday brunch crumble</h3>
+              <p>
+                Oat crumble crust layered with cinnamon streusel and a tangy cream cheese swirl—perfect with coffee.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="ordering">
+          <header class="section-header">
+            <h2 class="section-title">Ordering timeline</h2>
+            <p class="section-subtitle">
+              We bake to order and keep things cozy. Here’s how to reserve your treat and make sure it’s perfect.
+            </p>
+          </header>
+          <div class="ordering-steps">
+            <article class="ordering-step">
+              <h3>Dream up your dessert</h3>
+              <p>
+                Peek at the menu, pull inspiration from your favorite celebrations, and gather any must-have details or
+                dietary notes.
+              </p>
+            </article>
+            <article class="ordering-step">
+              <h3>Send a request</h3>
+              <p>
+                Drop us a line with your date, portion needs, and any custom decoration ideas. We’ll confirm availability
+                within 48 hours.
+              </p>
+            </article>
+            <article class="ordering-step">
+              <h3>Lock in the bake</h3>
+              <p>
+                Once we align on plan and pricing, we’ll secure your spot on the baking calendar with a 25% deposit.
+              </p>
+            </article>
+            <article class="ordering-step">
+              <h3>Pickup or delivery</h3>
+              <p>
+                Choose local pickup from our Kirkwood kitchen or arrange an in-town delivery. We’ll package everything to
+                arrive party ready.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <header class="section-header">
+            <h2 class="section-title">Let’s bake together</h2>
+            <p class="section-subtitle">
+              Ready to secure your date or have a question about flavors? Reach out—we’d love to hear what you’re
+              celebrating.
+            </p>
+          </header>
+          <div class="contact-card">
+            <div class="contact-methods">
+              <div class="contact-method">
+                <span>Email</span>
+                <a href="mailto:hello@barelyberndtbakery.com?subject=Sweet%20things%20please">hello@barelyberndtbakery.com</a>
+              </div>
+              <div class="contact-method">
+                <span>Instagram</span>
+                <a href="https://www.instagram.com/barelyberndtbakery" target="_blank" rel="noreferrer noopener">@barelyberndtbakery</a>
+              </div>
+              <div class="contact-method">
+                <span>Location</span>
+                <p>Based in Atlanta, GA · Pickup in Kirkwood · Local delivery available</p>
+              </div>
+            </div>
+            <p class="section-subtitle">
+              Looking for something special? From color palettes to custom toppers, we’ll collaborate to craft the treat
+              that matches your moment.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        Barely Berndt Bakery · Made with love in Atlanta, GA
+      </footer>
+    </div>
+  </body>
+</html>

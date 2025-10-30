@@ -1,0 +1,16 @@
+{
+  "--bg": "#fffaf2",
+  "--bg-accent": "#ffe1c8",
+  "--card": "#ffffffcc",
+  "--card-border": "rgba(255, 255, 255, 0.6)",
+  "--cookie": "#8b5a2b",
+  "--cookie-edge": "#6d4220",
+  "--mitt-left": "#f46d75",
+  "--mitt-right": "#f9a15e",
+  "--shadow": "rgba(27, 14, 4, 0.14)",
+  "--text": "#3b2515",
+  "--subtle": "#8b6a4b",
+  "--accent": "#ff6f61",
+  "--accent-dark": "#d3554a",
+  "--sprinkle": "rgba(244, 158, 135, 0.55)"
+}
