@@ -79,12 +79,31 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        backdrop-filter: blur(22px);
-        background: rgba(255, 255, 255, 0.22);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(24px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12));
+        border: 1px solid rgba(255, 255, 255, 0.55);
         border-radius: 999px;
         padding: 14px clamp(18px, 3vw, 32px);
-        box-shadow: 0 20px 50px rgba(48, 34, 29, 0.18);
+        box-shadow: 0 18px 45px rgba(48, 34, 29, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      }
+
+      .nav-shell::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(255, 255, 255, 0.3) 100%),
+          repeating-linear-gradient(
+            -60deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.08) 18px,
+            rgba(255, 255, 255, 0.02) 18px,
+            rgba(255, 255, 255, 0.02) 36px
+          );
+        opacity: 0.25;
+        mix-blend-mode: screen;
+        pointer-events: none;
       }
 
       .brand {
@@ -183,36 +202,6 @@
         font-size: clamp(1.05rem, 2vw, 1.25rem);
         line-height: 1.6;
         color: var(--mink);
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .hero-actions a {
-        text-decoration: none;
-        border-radius: 999px;
-        padding: 12px 24px;
-        font-weight: 600;
-        transition: transform 180ms ease, box-shadow 180ms ease;
-      }
-
-      .hero-primary {
-        background: linear-gradient(135deg, var(--rose), var(--accent-dark));
-        color: #fff;
-        box-shadow: 0 16px 30px rgba(183, 134, 122, 0.4);
-      }
-
-      .hero-secondary {
-        background: rgba(255, 255, 255, 0.75);
-        color: var(--accent-dark);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-
-      .hero-actions a:hover {
-        transform: translateY(-2px);
       }
 
       .hero-visual {
@@ -468,6 +457,10 @@
         gap: clamp(14px, 3vw, 22px);
       }
 
+      .contact-card > .section-subtitle {
+        text-align: center;
+      }
+
       .contact-methods {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -512,13 +505,13 @@
         .nav-shell {
           flex-direction: column;
           gap: 14px;
-          align-items: flex-start;
+          align-items: center;
         }
 
         nav {
-          width: 100%;
+          width: auto;
           flex-wrap: wrap;
-          justify-content: flex-start;
+          justify-content: center;
           gap: 8px;
         }
 
@@ -533,8 +526,7 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        nav a,
-        .hero-actions a {
+        nav a {
           transition: none;
         }
       }
@@ -568,10 +560,6 @@
               whimsy into made-to-order celebrations. Take a peek at what's in the oven and get ready to taste your new
               favorite slice.
             </p>
-            <div class="hero-actions">
-              <a class="hero-primary" href="#menu">Explore the menu</a>
-              <a class="hero-secondary" href="#contact">Say hello</a>
-            </div>
           </div>
           <div class="hero-visual">
             <img src="assets/bbb_logo.png" alt="Barely Berndt Bakery badge" decoding="async" />
@@ -840,7 +828,7 @@
       </main>
 
       <footer>
-        (Barely) Berndt Bakery · Baked with love in ATL, GA
+        (Barely) Berndt Bakery · Baked with love in ATL, GA.
       </footer>
     </div>
   </body>
