@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="assets/favicon.png" type="image/png" />
-    <title>Barely Berndt Bakery · Sweet Moments Ahead</title>
+    <title>(Barely) Berndt Bakery</title>
     <meta
       name="description"
       content="Barely Berndt Bakery is baking heart-forward cakes and cookies in Atlanta. Explore the story, peek at the menu, and get in touch to place your order."
@@ -286,31 +286,140 @@
         line-height: 1.55;
       }
 
-      .menu-grid {
+      .menu-panels {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: clamp(16px, 3vw, 28px);
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: clamp(18px, 3vw, 32px);
       }
 
-      .menu-item {
-        padding: clamp(16px, 3vw, 24px);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.75);
+      .menu-panel {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(12px, 2vw, 18px);
+        padding: clamp(18px, 3vw, 32px);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 12px 35px rgba(47, 42, 42, 0.08);
+      }
+
+      .menu-tag {
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin: 0;
+      }
+
+      .menu-panel h3 {
+        margin: 0;
+        font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+      }
+
+      .menu-panel p {
+        margin: 0;
+        color: var(--mink);
+        line-height: 1.55;
+      }
+
+      .menu-section {
+        display: grid;
+        gap: 6px;
+      }
+
+      .menu-section h4 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .menu-list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--mink);
+        line-height: 1.5;
+      }
+
+      .menu-list li + li {
+        margin-top: 2px;
+      }
+
+      .menu-note {
+        font-size: 0.92rem;
+        color: var(--mink);
+      }
+
+      .sizing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+
+      .sizing-card {
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.65);
         border: 1px solid rgba(0, 0, 0, 0.04);
         display: grid;
         gap: 6px;
       }
 
-      .menu-item h3 {
+      .sizing-label {
         margin: 0;
-        font-size: 1.05rem;
-        letter-spacing: 0.02em;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink);
       }
 
-      .menu-item p {
+      .sizing-details {
         margin: 0;
         color: var(--mink);
-        line-height: 1.5;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .sizing-price {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .menu-facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+
+      .menu-fact {
+        padding: 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: grid;
+        gap: 4px;
+      }
+
+      .menu-fact h5 {
+        margin: 0;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .menu-pricing {
+        display: grid;
+        gap: 4px;
+      }
+
+      .menu-pricing dt {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .menu-pricing dd {
+        margin: 0 0 6px 0;
+        color: var(--mink);
       }
 
       .ordering-steps {
@@ -405,10 +514,12 @@
           width: 100%;
           flex-wrap: wrap;
           justify-content: flex-start;
+          gap: 8px;
         }
 
         nav a {
-          padding: 10px 14px;
+          padding: 8px 12px;
+          font-size: 0.85rem;
         }
 
         .hero::after {
@@ -430,7 +541,7 @@
         <div class="nav-shell">
           <a class="brand" href="#top">
             <img src="assets/bbb_logo.png" alt="Barely Berndt Bakery logo" decoding="async" />
-            Barely Berndt Bakery
+            (Barely) Berndt Bakery
           </a>
           <nav aria-label="Primary">
             <a href="#about">About</a>
@@ -447,8 +558,8 @@
             <p class="hero-eyebrow">Heart-first baking</p>
             <h1 class="hero-title">Cookie cakes and nostalgic treats baked with big feelings.</h1>
             <p class="hero-copy">
-              We’re Barely Berndt Bakery—an Atlanta micro-bakery turning brown butter, sparkling sugar, and a pinch of
-              whimsy into made-to-order celebrations. Take a peek at what’s in the oven and get ready to taste your new
+              We're Barely Berndt Bakery—an Atlanta micro-bakery turning brown butter, sparkling sugar, and a pinch of
+              whimsy into made-to-order celebrations. Take a peek at what's in the oven and get ready to taste your new
               favorite slice.
             </p>
             <div class="hero-actions">
@@ -481,7 +592,7 @@
               <h3>Small batch, big heart</h3>
               <p>
                 We keep our batches intimate so each crumb gets attention. From hand-painted icing to richly layered
-                dough, you’ll taste the care (and the butter) in every bite.
+                dough, you'll taste the care (and the butter) in every bite.
               </p>
             </article>
             <article class="about-card">
@@ -496,39 +607,160 @@
 
         <section class="section" id="menu">
           <header class="section-header">
-            <h2 class="section-title">Menu preview</h2>
+            <h2 class="section-title">Cookie cake &amp; bite menus</h2>
             <p class="section-subtitle">
-              Seasonal flavors rotate in and out, but these classics are always on deck. Vegan and gluten-free friendly
-              options are in the works.
+              Choose your base, icing, and extras. Flavors rotate as the seasons (and cravings) shift, so reach out if
+              you want something special.
             </p>
           </header>
-          <div class="menu-grid">
-            <article class="menu-item">
-              <h3>Heart-on-sleeve cookie cake</h3>
+          <div class="menu-panels">
+            <article class="menu-panel">
+              <p class="menu-tag">Cookie cakes</p>
+              <h3>Cookie Cakes Menu</h3>
               <p>
-                Brown butter dough laced with dark chocolate chunks, caramel ribbons, and a sprinkle-studded buttercream
-                border.
+                Build a butter-laced cookie cake with the flavor, frosting, and finishing touches that match your
+                celebration.
               </p>
+              <div class="menu-section">
+                <h4>Cookie flavors</h4>
+                <ul class="menu-list">
+                  <li>Chocolate chip</li>
+                  <li>Sugar</li>
+                  <li>Funfetti</li>
+                  <li>M&amp;M</li>
+                  <li>Red velvet</li>
+                  <li>Cookies and cream</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <h4>Icing flavors</h4>
+                <ul class="menu-list">
+                  <li>Vanilla (can be tinted any color of the rainbow)</li>
+                  <li>Chocolate</li>
+                </ul>
+                <p class="menu-note">Want a colorful cake? Select vanilla buttercream for the brightest hues.</p>
+              </div>
+              <div class="menu-section">
+                <h4>Decor add-ons</h4>
+                <p class="menu-note">
+                  All cakes come dressed with buttercream flowers, swirls, and squiggles unless requested otherwise.
+                  Messages are written with molded chocolate letters.
+                </p>
+                <ul class="menu-list">
+                  <li><strong>Shaped buttercream</strong> · from $5+</li>
+                  <li><strong>Molded chocolate shapes</strong> · from $5+</li>
+                  <li><strong>Edible glitter</strong> · $3</li>
+                  <li><strong>Fancy sprinkles</strong> · $3</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <h4>Let&rsquo;s talk sizing</h4>
+                <div class="sizing-grid">
+                  <article class="sizing-card">
+                    <p class="sizing-label">Small</p>
+                    <p class="sizing-price">Starts at $25</p>
+                    <p class="sizing-details">
+                      12&quot; round · Feeds 10&ndash;15<br />
+                      7.5&quot; &times; 10&quot; single-layer rectangle
+                    </p>
+                  </article>
+                  <article class="sizing-card">
+                    <p class="sizing-label">Medium</p>
+                    <p class="sizing-price">Starts at $40</p>
+                    <p class="sizing-details">
+                      7.5&quot; &times; 10&quot; double-layer rectangle<br />
+                      or two letters/numbers in a single layer
+                    </p>
+                  </article>
+                  <article class="sizing-card">
+                    <p class="sizing-label">Large</p>
+                    <p class="sizing-price">Starts at $60</p>
+                    <p class="sizing-details">
+                      15&quot; &times; 10&quot; single layer (feeds 35&ndash;40)<br />
+                      15&quot; &times; 10&quot; double layer<br />
+                      or two ~10&quot; &times; 15&quot; letters/numbers (single layer)<br />
+                      or two 7.5&quot; &times; 10&quot; letters/numbers double stacked
+                    </p>
+                  </article>
+                </div>
+                <p class="menu-note">
+                  Cut shapes are available in the same sizes as the letter/number options above.
+                </p>
+                <p class="menu-note">
+                  Don&rsquo;t see your dream size or configuration? Reach out&mdash;we can chat through custom options.
+                </p>
+              </div>
             </article>
-            <article class="menu-item">
-              <h3>Brown sugar birthday bars</h3>
+            <article class="menu-panel">
+              <p class="menu-tag">Cookie bites</p>
+              <h3>Cookie Bites Menu</h3>
               <p>
-                Chewy center, crisp edges, vanilla bean frosting, and glittering sugar that makes every slice party
-                ready.
+                Mini 1&ndash;2 bite cookies, decorated to match your cake or served plain with buttercream for dipping.
               </p>
-            </article>
-            <article class="menu-item">
-              <h3>Midnight spoon cookies</h3>
-              <p>
-                Dark cocoa dough, puddles of semisweet chocolate, and a kiss of Maldon salt for the late-night sweet
-                tooth.
-              </p>
-            </article>
-            <article class="menu-item">
-              <h3>Sunday brunch crumble</h3>
-              <p>
-                Oat crumble crust layered with cinnamon streusel and a tangy cream cheese swirl—perfect with coffee.
-              </p>
+              <div class="menu-section">
+                <h4>Cookie flavors</h4>
+                <ul class="menu-list">
+                  <li>Chocolate chip</li>
+                  <li>Sugar</li>
+                  <li>Funfetti</li>
+                  <li>M&amp;M</li>
+                  <li>Red velvet</li>
+                  <li>Cookies and cream</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <h4>Icing flavors</h4>
+                <ul class="menu-list">
+                  <li>Vanilla (can be tinted any color of the rainbow)</li>
+                  <li>Chocolate</li>
+                </ul>
+                <p class="menu-note">For the most colorful palette, select vanilla buttercream.</p>
+              </div>
+              <div class="menu-section">
+                <h4>Decor add-ons*</h4>
+                <p class="menu-note">
+                  Cookie bites include buttercream flowers, swirls, and squiggles unless you request otherwise. Messages
+                  are written in molded chocolate. *Pricing listed per dozen.
+                </p>
+                <ul class="menu-list">
+                  <li><strong>Shaped buttercream</strong> · from $5+</li>
+                  <li><strong>Molded chocolate shapes</strong> · from $5+</li>
+                  <li><strong>Edible glitter</strong> · $3</li>
+                  <li><strong>Fancy sprinkles</strong> · $3</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <h4>What&rsquo;s a cookie bite?</h4>
+                <div class="menu-facts">
+                  <article class="menu-fact">
+                    <h5>Bite size</h5>
+                    <p>
+                      Each cookie bite is roughly 2&quot; wide&mdash;the perfect one- or two-bite treat, available
+                      decorated or plain with a side of buttercream.
+                    </p>
+                  </article>
+                  <article class="menu-fact">
+                    <h5>Easy peasy</h5>
+                    <p>
+                      No slicing required. They&rsquo;re party-ready and ideal for boosting the serving count of a large
+                      cookie cake.
+                    </p>
+                  </article>
+                  <article class="menu-fact">
+                    <h5>Cute AF</h5>
+                    <p>Dress them to match your decor or keep them simple and classic&mdash;either way, they turn heads.</p>
+                  </article>
+                </div>
+              </div>
+              <div class="menu-section">
+                <h4>Pricing</h4>
+                <dl class="menu-pricing">
+                  <dt>Decorated</dt>
+                  <dd>$15+/dozen</dd>
+                  <dt>Undecorated</dt>
+                  <dd>$10+/dozen (includes three small tubs of buttercream for dipping)</dd>
+                </dl>
+              </div>
             </article>
           </div>
         </section>
@@ -537,7 +769,7 @@
           <header class="section-header">
             <h2 class="section-title">Ordering timeline</h2>
             <p class="section-subtitle">
-              We bake to order and keep things cozy. Here’s how to reserve your treat and make sure it’s perfect.
+              We bake to order and keep things cozy. Here's how to reserve your treat and make sure it's perfect.
             </p>
           </header>
           <div class="ordering-steps">
@@ -551,20 +783,20 @@
             <article class="ordering-step">
               <h3>Send a request</h3>
               <p>
-                Drop us a line with your date, portion needs, and any custom decoration ideas. We’ll confirm availability
+                Drop us a line with your date, portion needs, and any custom decoration ideas. We'll confirm availability
                 within 48 hours.
               </p>
             </article>
             <article class="ordering-step">
               <h3>Lock in the bake</h3>
               <p>
-                Once we align on plan and pricing, we’ll secure your spot on the baking calendar with a 25% deposit.
+                Once we align on plan and pricing, we'll secure your spot on the baking calendar with a 25% deposit.
               </p>
             </article>
             <article class="ordering-step">
               <h3>Pickup or delivery</h3>
               <p>
-                Choose local pickup from our Kirkwood kitchen or arrange an in-town delivery. We’ll package everything to
+                Choose local pickup from our Kirkwood kitchen or arrange an in-town delivery. We'll package everything to
                 arrive party ready.
               </p>
             </article>
@@ -573,9 +805,9 @@
 
         <section class="section" id="contact">
           <header class="section-header">
-            <h2 class="section-title">Let’s bake together</h2>
+            <h2 class="section-title">Let's bake together</h2>
             <p class="section-subtitle">
-              Ready to secure your date or have a question about flavors? Reach out—we’d love to hear what you’re
+              Ready to secure your date or have a question about flavors? Reach out—we'd love to hear what you're
               celebrating.
             </p>
           </header>
@@ -591,19 +823,18 @@
               </div>
               <div class="contact-method">
                 <span>Location</span>
-                <p>Based in Atlanta, GA · Pickup in Kirkwood · Local delivery available</p>
+                <p>Based in Atlanta, GA · Pickup in Decatur / AE · Local delivery available</p>
               </div>
             </div>
             <p class="section-subtitle">
-              Looking for something special? From color palettes to custom toppers, we’ll collaborate to craft the treat
-              that matches your moment.
+              Looking for something extra special? Let us know what you had in mind and maybe we can work some magic!
             </p>
           </div>
         </section>
       </main>
 
       <footer>
-        Barely Berndt Bakery · Made with love in Atlanta, GA
+        (Barely) Berndt Bakery · Baked with love in ATL, GA
       </footer>
     </div>
   </body>
