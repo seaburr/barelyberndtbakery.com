@@ -85,7 +85,7 @@
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12));
         border: 1px solid rgba(255, 255, 255, 0.55);
         border-radius: 999px;
-        padding: 14px clamp(18px, 3vw, 32px);
+        padding: 10px clamp(16px, 3vw, 28px);
         box-shadow: 0 18px 45px rgba(48, 34, 29, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
       }
 
@@ -118,8 +118,8 @@
       }
 
       .brand img {
-        width: 42px;
-        height: 42px;
+        width: 36px;
+        height: 36px;
         border-radius: 12px;
         box-shadow: 0 6px 16px rgba(47, 42, 42, 0.18);
       }
@@ -207,18 +207,18 @@
       .hero-visual {
         align-self: center;
         justify-self: center;
-        background: rgba(255, 255, 255, 0.72);
-        padding: clamp(18px, 3vw, 32px);
-        border-radius: clamp(24px, 4vw, 36px);
-        border: 1px solid rgba(255, 255, 255, 0.55);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35), 0 18px 40px rgba(48, 34, 29, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 2vw, 24px);
       }
 
       .hero-visual img {
-        width: clamp(200px, 32vw, 280px);
+        width: clamp(260px, 42vw, 380px);
         height: auto;
         display: block;
         margin: 0 auto;
+        filter: drop-shadow(0 30px 60px rgba(25, 20, 20, 0.28));
       }
 
       .section {
@@ -289,9 +289,9 @@
         gap: clamp(12px, 2vw, 18px);
         padding: clamp(18px, 3vw, 32px);
         border-radius: 22px;
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid rgba(0, 0, 0, 0.04);
-        box-shadow: 0 12px 35px rgba(47, 42, 42, 0.08);
+        background: linear-gradient(165deg, rgba(156, 175, 170, 0.28), rgba(125, 140, 136, 0.4), rgba(255, 255, 255, 0.92));
+        border: 1px solid rgba(125, 140, 136, 0.45);
+        box-shadow: 0 18px 40px rgba(47, 42, 42, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
         width: 100%;
       }
 
@@ -299,7 +299,7 @@
         font-size: 0.9rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--accent-dark);
+        color: var(--teal);
         margin: 0;
       }
 
@@ -325,6 +325,7 @@
         font-size: 0.92rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
+        color: #2f3533;
       }
 
       .menu-list {
@@ -504,20 +505,23 @@
       @media (max-width: 720px) {
         .nav-shell {
           flex-direction: column;
-          gap: 14px;
+          gap: 8px;
           align-items: center;
+          padding: 8px 16px;
         }
 
         nav {
-          width: auto;
-          flex-wrap: wrap;
+          width: 100%;
+          flex-wrap: nowrap;
           justify-content: center;
-          gap: 8px;
+          gap: 6px;
+          overflow-x: auto;
         }
 
         nav a {
-          padding: 8px 12px;
-          font-size: 0.85rem;
+          padding: 6px 10px;
+          font-size: 0.78rem;
+          white-space: nowrap;
         }
 
         .hero::after {
