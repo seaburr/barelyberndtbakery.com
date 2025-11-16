@@ -79,12 +79,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        backdrop-filter: blur(18px);
-        background: rgba(255, 255, 255, 0.35);
-        border: 1px solid rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(22px);
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.5);
         border-radius: 999px;
         padding: 14px clamp(18px, 3vw, 32px);
-        box-shadow: 0 18px 45px rgba(48, 34, 29, 0.13);
+        box-shadow: 0 20px 50px rgba(48, 34, 29, 0.18);
       }
 
       .brand {
@@ -287,9 +287,11 @@
       }
 
       .menu-panels {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        display: flex;
+        flex-direction: column;
         gap: clamp(18px, 3vw, 32px);
+        width: 100%;
+        margin: 0 auto;
       }
 
       .menu-panel {
@@ -301,6 +303,7 @@
         background: rgba(255, 255, 255, 0.82);
         border: 1px solid rgba(0, 0, 0, 0.04);
         box-shadow: 0 12px 35px rgba(47, 42, 42, 0.08);
+        width: 100%;
       }
 
       .menu-tag {
@@ -313,13 +316,14 @@
 
       .menu-panel h3 {
         margin: 0;
-        font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+        font-size: clamp(1.15rem, 2vw, 1.4rem);
       }
 
       .menu-panel p {
         margin: 0;
         color: var(--mink);
         line-height: 1.55;
+        font-size: 0.97rem;
       }
 
       .menu-section {
@@ -329,7 +333,7 @@
 
       .menu-section h4 {
         margin: 0;
-        font-size: 1rem;
+        font-size: 0.92rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
@@ -338,7 +342,8 @@
         margin: 0;
         padding-left: 18px;
         color: var(--mink);
-        line-height: 1.5;
+        line-height: 1.45;
+        font-size: 0.95rem;
       }
 
       .menu-list li + li {
@@ -346,7 +351,7 @@
       }
 
       .menu-note {
-        font-size: 0.92rem;
+        font-size: 0.88rem;
         color: var(--mink);
       }
 
@@ -376,7 +381,7 @@
       .sizing-details {
         margin: 0;
         color: var(--mink);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         line-height: 1.4;
       }
 
@@ -402,7 +407,7 @@
 
       .menu-fact h5 {
         margin: 0;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
@@ -536,10 +541,11 @@
     </style>
   </head>
   <body>
+    <div id="page-top"></div>
     <div class="site-wrapper">
       <header class="site-header">
         <div class="nav-shell">
-          <a class="brand" href="#top">
+          <a class="brand" href="#page-top">
             <img src="assets/bbb_logo.png" alt="Barely Berndt Bakery logo" decoding="async" />
             (Barely) Berndt Bakery
           </a>
